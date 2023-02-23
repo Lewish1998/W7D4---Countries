@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import CountryContainer from './Container/CountryContaner';
 
 function App() {
+
+  const regions = [
+    {name:'Europe', url:'https://restcountries.com/v3.1/region/europe'},
+    {name:'Africa', url:'https://restcountries.com/v3.1/region/africa'},
+    {name:'Aisa', url:'https://restcountries.com/v3.1/region/aisa'},
+    {name:'Americas', url:'https://restcountries.com/v3.1/region/americas'},
+    {name:'Oceania', url:'https://restcountries.com/v3.1/region/oceania'},
+  ]
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CountryContainer regions={regions}/>
     </div>
   );
 }
