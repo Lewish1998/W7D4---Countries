@@ -5,7 +5,7 @@ const ListItem = ({country}) => {
 
     return(
     <>
-    <li>Country: {country.name.common}</li>
+    <li><b>Country: {country.name.common}</b></li>
     <li>Population: {country.population}</li>
     <br></br>
     </>

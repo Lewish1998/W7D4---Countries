@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from "react";
 import CountryList from "../Components/CountryList";
+import TitleBar from "../Components/TitleBar";
 
 const CountryContainer = ({regions}) => {
 
-    const [countries, setCountries] = useState([]);
+    const[countries, setCountries] = useState([])
 
     useEffect(() => {
-      getCountries();
-    }, [])
+      getRegions(regions[0].url)
+    }, [regions])
 
 
-    const getCountries = function(){
-        fetch('https://restcountries.com/v3.1/all')
-        .then(result => result.json())
+    const getRegions = url => {
+        fetch(url)
+        .then(results => results.json())
         .then(countries => setCountries(countries))
     }
 
-
+    const handleSelectChange = event => {
+        getRegions(event.target.value)
+    }
 
 
 
 
     return (
         <div>
+            <TitleBar regions={regions} handleSelectChange={handleSelectChange}/>
             <CountryList countries={countries}/>
-            {regions}
         </div>
     )
 }
