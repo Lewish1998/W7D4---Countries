@@ -4,6 +4,7 @@ import TitleBar from "../Components/TitleBar";
 
 const CountryContainer = ({regions}) => {
 
+    const [selectedCountry, setSelectedCountry] = useState([])
     const[countries, setCountries] = useState([])
 
     useEffect(() => {
@@ -22,12 +23,15 @@ const CountryContainer = ({regions}) => {
     }
 
 
+    const onCountryClicked = function(country) {
+        setSelectedCountry(countries[country])
+    }
 
 
     return (
         <div>
             <TitleBar regions={regions} handleSelectChange={handleSelectChange}/>
-            <CountryList countries={countries}/>
+            <CountryList countries={countries} selectedCountry={selectedCountry} onCountryClicked={onCountryClicked}/>
         </div>
     )
 }

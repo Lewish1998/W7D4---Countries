@@ -1,9 +1,9 @@
 import React from "react";
-import ListItem from "./ListItem";5
+import ListItem from "./ListItem";
 
-const CountryList = ({countries}) => {
+const CountryList = ({countries, selectedCountry, onCountryClicked}) => {
     const countryItems = countries.map((country, index) => {
-        return <ListItem country={country} key={index}/>
+        return <ListItem country={country} key={index} onCountryClicked={onCountryClicked}/>
     })
 
     return (
