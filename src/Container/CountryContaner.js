@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CountryList from "../Components/CountryList";
 import TitleBar from "../Components/TitleBar";
+import CountrySelector from "../Components/CountrySelector";
 
 const CountryContainer = ({regions}) => {
 
@@ -32,6 +33,7 @@ const CountryContainer = ({regions}) => {
         <div>
             <TitleBar regions={regions} handleSelectChange={handleSelectChange}/>
             <CountryList countries={countries} selectedCountry={selectedCountry} onCountryClicked={onCountryClicked}/>
+            <CountrySelector selectedCountry={selectedCountry}/>
         </div>
     )
 }
